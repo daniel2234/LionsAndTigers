@@ -10,9 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var myImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var breedLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        var myTiger = Tiger()
+        myTiger.name = "Tigger" //creating and instance for the struct(blueprint)
+        myTiger.breed = "Bengal"
+        myTiger.age = 3
+        myTiger.image = UIImage(named: "BengalTiger.jpg")
+        
+        println("My Tiger's name is: \(myTiger.name), its' age is \(myTiger.age), its' breed is \(myTiger.breed) and its' image is \(myTiger.image)")
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +36,7 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
+    }
 }
 
