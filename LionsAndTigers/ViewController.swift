@@ -27,6 +27,11 @@ class ViewController: UIViewController {
         
         println("My Tiger's name is: \(myTiger.name), its' age is \(myTiger.age), its' breed is \(myTiger.breed) and its' image is \(myTiger.image)")
         
+        myImageView.image = myTiger.image //used the tiger instance to test app
+        nameLabel.text = myTiger.name
+        ageLabel.text = "\(myTiger.age)"
+        breedLabel.text = myTiger.breed
+        
         
     }
 
