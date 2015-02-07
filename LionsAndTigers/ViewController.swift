@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     
     var myTigers:[Tiger]=[] //created an array to store instances
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -64,6 +63,7 @@ class ViewController: UIViewController {
 
 
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
+        println(myTigers)
     }
 }
 
