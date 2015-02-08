@@ -69,11 +69,21 @@ class ViewController: UIViewController {
         
         let tiger = myTigers[randomIndex]
         
-        println()
-        myImageView.image = tiger.image
-        nameLabel.text = tiger.name
-        ageLabel.text = "\(tiger.age)"
-        breedLabel.text = tiger.breed
+//        myImageView.image = tiger.image
+//        nameLabel.text = tiger.name
+//        ageLabel.text = "\(tiger.age)"
+//        breedLabel.text = tiger.breed
+        
+        UIView.transitionWithView(self.view, duration: 2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            // added the self technique
+            self.myImageView.image = tiger.image
+            self.nameLabel.text = tiger.name
+            self.ageLabel.text = "\(tiger.age)"
+            self.breedLabel.text = tiger.breed
+        
+            }, completion: {
+                (finishd:Bool) -> () in
+        })
     }
 }
 
