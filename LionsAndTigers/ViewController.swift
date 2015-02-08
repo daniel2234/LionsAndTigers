@@ -15,12 +15,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
     
-    var myTigers:[Tiger]=[] //created an array to store instances
+    var myTigers:[Tiger] = [] //created an array to store instances
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var myTiger = Tiger()
+        var myTiger = Tiger() //default intializer
         myTiger.name = "Tigger" //creating and instance for the struct(blueprint)
         myTiger.breed = "Bengal"
         myTiger.age = 3
@@ -54,6 +54,8 @@ class ViewController: UIViewController {
         fourthTiger.age = 5
         fourthTiger.image = UIImage(named:"SiberianTiger.jpg")
         
+        myTigers += [secondTiger,thirdTiger,fourthTiger]// added the instances into the array
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,9 +63,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
-        println(myTigers)
+        //press the next button to show random tigers
+        let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+        
+        let tiger = myTigers[randomIndex]
+        
+        println()
+        myImageView.image = tiger.image
+        nameLabel.text = tiger.name
+        ageLabel.text = "\(tiger.age)"
+        breedLabel.text = tiger.breed
     }
 }
 
