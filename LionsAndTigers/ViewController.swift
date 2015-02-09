@@ -17,9 +17,16 @@ class ViewController: UIViewController {
     
     var myTigers:[Tiger] = [] //created an array to store instances
     
+    var currentIndex = 0 //create a starting point a index
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        nameLabel.textColor = UIColor.magentaColor() //added magenta for all slides
+        ageLabel.textColor = UIColor.magentaColor()
+        breedLabel.textColor = UIColor.magentaColor()
+        
         var myTiger = Tiger() //default intializer
         myTiger.name = "Tigger" //creating and instance for the struct(blueprint)
         myTiger.breed = "Bengal"
@@ -65,7 +72,13 @@ class ViewController: UIViewController {
 
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
         //press the next button to show random tigers
-        let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+        var randomIndex:Int
+        
+        do {
+        randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+        } while currentIndex == randomIndex
+        
+        currentIndex = randomIndex
         
         let tiger = myTigers[randomIndex]
         
@@ -80,6 +93,8 @@ class ViewController: UIViewController {
             self.nameLabel.text = tiger.name
             self.ageLabel.text = "\(tiger.age)"
             self.breedLabel.text = tiger.breed
+            
+            println("randomIndex: \(randomIndex)")//to check that it cycles
         
             }, completion: {
                 (finishd:Bool) -> () in
