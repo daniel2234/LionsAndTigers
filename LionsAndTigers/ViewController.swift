@@ -34,15 +34,16 @@ class ViewController: UIViewController {
         myTiger.image = UIImage(named: "BengalTiger.jpg")
         
         myTiger.chuff()
+        myTiger.chuffANumberOfTimes(5, isLoud: true)
         
-        myTigers.append(myTiger)// adding Tiger instance to Array
+        self.myTigers.append(myTiger)// adding Tiger instance to Array
         
         println("My Tiger's name is: \(myTiger.name), its' age is \(myTiger.age), its' breed is \(myTiger.breed) and its' image is \(myTiger.image)")
         
-        myImageView.image = myTiger.image //used the tiger instance to test app
-        nameLabel.text = myTiger.name
-        ageLabel.text = "\(myTiger.age)"
-        breedLabel.text = myTiger.breed
+        self.myImageView.image = myTiger.image //used the tiger instance to test app
+        self.nameLabel.text = myTiger.name
+        self.ageLabel.text = "\(myTiger.age)"
+        self.breedLabel.text = myTiger.breed
         
         //made 3 instances of of different tigers, also to further my undertanding of encapsulation to understanding object-oriented programming
         var secondTiger = Tiger()
@@ -64,8 +65,9 @@ class ViewController: UIViewController {
         fourthTiger.age = 5
         fourthTiger.image = UIImage(named:"SiberianTiger.jpg")
         
-        myTigers += [secondTiger,thirdTiger,fourthTiger]// added the instances into the array
+        self.myTigers += [secondTiger,thirdTiger,fourthTiger]// added the instances into the array
         
+        self.printHelloWorld()
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,9 +83,9 @@ class ViewController: UIViewController {
         randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
         } while currentIndex == randomIndex
         
-        currentIndex = randomIndex
+        self.currentIndex = randomIndex
         
-        let tiger = myTigers[randomIndex]
+        let tiger = self.myTigers[randomIndex]
         
 //        myImageView.image = tiger.image
 //        nameLabel.text = tiger.name
@@ -102,6 +104,10 @@ class ViewController: UIViewController {
             }, completion: {
                 (finishd:Bool) -> () in
         })
+    }
+    
+    func printHelloWorld(){
+        println("Hello World")
     }
 }
 
