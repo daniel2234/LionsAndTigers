@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     
     var myTigers:[Tiger] = [] //created an array to store instances
-    
+    var lions:[Lion] = []
     var currentIndex = 0 //create a starting point a index
     
     override func viewDidLoad() {
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         nameLabel.textColor = UIColor.magentaColor() //added magenta for all slides
         ageLabel.textColor = UIColor.magentaColor()
         breedLabel.textColor = UIColor.magentaColor()
+        randomFactLabel.textColor = UIColor.magentaColor()
         
         var myTiger = Tiger() //default intializer
         myTiger.name = "Tigger" //creating and instance for the struct(blueprint)
@@ -79,7 +80,22 @@ class ViewController: UIViewController {
         
         self.myTigers += [secondTiger,thirdTiger,fourthTiger]// added the instances into the array
         
-        self.printHelloWorld()
+        //made a lion class to figure out the difference between classes and structs
+        var lion = Lion()
+        lion.age = 4
+        lion.isAlphaMale = false
+        lion.image = UIImage(named: "Lion.jpg")
+        lion.name = "Mufasa"
+        lion.subspecies = "West African"
+        
+        var lioness = Lion()
+        lioness.age = 3
+        lioness.isAlphaMale = false
+        lioness.image = UIImage(named: "Lioness.jpeg")
+        lioness.name = "Sarabi"
+        lioness.subspecies = "Barbary"
+        
+        self.lions += [lion, lioness]
     }
 
     override func didReceiveMemoryWarning() {
