@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		658ECF671A94259300BF352B /* Lion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658ECF661A94259300BF352B /* Lion.swift */; };
+		65DB96351A95A23900F55DEC /* LionCub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DB96341A95A23900F55DEC /* LionCub.swift */; };
 		65F08CF51A82DE5D00003085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F08CF41A82DE5D00003085 /* AppDelegate.swift */; };
 		65F08CF71A82DE5D00003085 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F08CF61A82DE5D00003085 /* ViewController.swift */; };
 		65F08CFA1A82DE5D00003085 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F08CF81A82DE5D00003085 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		658ECF661A94259300BF352B /* Lion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lion.swift; sourceTree = "<group>"; };
+		65DB96341A95A23900F55DEC /* LionCub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LionCub.swift; sourceTree = "<group>"; };
 		65F08CEF1A82DE5D00003085 /* LionsAndTigers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionsAndTigers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F08CF31A82DE5D00003085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65F08CF41A82DE5D00003085 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				65F08CF41A82DE5D00003085 /* AppDelegate.swift */,
 				65F08CF61A82DE5D00003085 /* ViewController.swift */,
 				658ECF661A94259300BF352B /* Lion.swift */,
+				65DB96341A95A23900F55DEC /* LionCub.swift */,
 				65F08D141A82E83C00003085 /* Tiger.swift */,
 				65F08CF81A82DE5D00003085 /* Main.storyboard */,
 				65F08CFB1A82DE5D00003085 /* Images.xcassets */,
@@ -261,6 +264,7 @@
 				65F08CF71A82DE5D00003085 /* ViewController.swift in Sources */,
 				65F08D151A82E83C00003085 /* Tiger.swift in Sources */,
 				65F08CF51A82DE5D00003085 /* AppDelegate.swift in Sources */,
+				65DB96351A95A23900F55DEC /* LionCub.swift in Sources */,
 				658ECF671A94259300BF352B /* Lion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
