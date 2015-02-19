@@ -16,4 +16,8 @@ class Lion {
     var name = ""
     var subspecies = ""
     
+    func roar (){
+        println("Lion: Roar Roar")
+    }
+    
 }

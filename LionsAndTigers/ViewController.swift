@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     var lions:[Lion] = []
     var currentIndex = 0 //create a starting point a index
     
+    var currentAnimal = (species: "Tiger", index : 0) // tuple
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -105,39 +107,57 @@ class ViewController: UIViewController {
 
     @IBAction func nextBarButtonItemPressed(sender: UIBarButtonItem) {
         //press the next button to show random tigers
-        var randomIndex:Int
-        
-        do {
-        randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
-        } while currentIndex == randomIndex
-        
-        self.currentIndex = randomIndex
-        
-        let tiger = self.myTigers[randomIndex]
-        
-//        myImageView.image = tiger.image
-//        nameLabel.text = tiger.name
-//        ageLabel.text = "\(tiger.age)"
-//        breedLabel.text = tiger.breed
+            updateAnimal()
+            updateView()
+           }
+    
+    func updateAnimal (){ //helper function for packaging a test statement
+        switch currentAnimal { // if were displaying a Tiger show a lion
+        case ("Tiger",_):
+            let randomIndex = Int(arc4random_uniform(UInt32(lions.count)))
+            println("countlion: \(lions.count)")
+            println("randomIndex: \(randomIndex)")
+            currentAnimal = ("Lion", randomIndex) //searching for lion and setting it to lion
+            println("currentAnimal: \(currentAnimal)")
+        default:
+            let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
+            println("counttiger: \(myTigers.count)")
+            println("randomIndex: \(randomIndex)")
+            currentAnimal = ("Tiger", randomIndex)
+            println("currentAnimal: \(currentAnimal)")
+        }
+    }
+    
+    func updateView () {
         
         UIView.transitionWithView(self.view, duration: 2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             // added the self technique
-            self.myImageView.image = tiger.image
-            self.nameLabel.text = tiger.name
-            self.ageLabel.text = "\(tiger.age)"
-            self.breedLabel.text = tiger.breed
-            self.randomFactLabel.text = tiger.randomFact()
             
+            if self.currentAnimal.species == "Tiger" {
+                let tiger = self.myTigers[self.currentAnimal.index]
+                self.myImageView.image = tiger.image
+                self.breedLabel.text = tiger.breed
+                self.ageLabel.text = "\(tiger.age)"
+                self.nameLabel.text = tiger.name
+                self.randomFactLabel.text = tiger.randomFact()
+            }
+            else if self.currentAnimal.species == "Lion" {
+                let lion = self.lions[self.currentAnimal.index]
+                self.myImageView.image = lion.image
+                self.breedLabel.text = lion.subspecies
+                self.ageLabel.text = "\(lion.age)"
+                self.nameLabel.text = lion.name
+                
             
-            println("randomIndex: \(randomIndex)")//to check that it cycles
-        
+            }
+            
+            self.randomFactLabel.hidden = false
+            
             }, completion: {
                 (finishd:Bool) -> () in
         })
-    }
     
-    func printHelloWorld(){
-        println("Hello World")
     }
+
 }
 
