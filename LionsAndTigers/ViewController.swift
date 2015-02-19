@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     var myTigers:[Tiger] = [] //created an array to store instances
     var lions:[Lion] = []
+    var lionCubs:[LionCub] = []
+    
     var currentIndex = 0 //create a starting point a index
     
     var currentAnimal = (species: "Tiger", index : 0) // tuple
@@ -110,8 +112,17 @@ class ViewController: UIViewController {
         lionCub.name = "Simba"
         lionCub.image = UIImage(named:"LionCub1.jpg")
         lionCub.subspecies = "Masai"
+        lionCub.isAlphaMale = true
         
         lionCub.roar()
+        lionCub.rubLionCubsBelly()
+        
+        var femaleLionCub = LionCub()
+        femaleLionCub.age = 1
+        femaleLionCub.name = "Nala"
+        femaleLionCub.image = UIImage (named: "LionCub2.jpeg")
+        femaleLionCub.subspecies = "Transvall"
+        femaleLionCub.isAlphaMale = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,16 +140,14 @@ class ViewController: UIViewController {
         switch currentAnimal { // if were displaying a Tiger show a lion
         case ("Tiger",_):
             let randomIndex = Int(arc4random_uniform(UInt32(lions.count)))
-            println("countlion: \(lions.count)")
-            println("randomIndex: \(randomIndex)")
             currentAnimal = ("Lion", randomIndex) //searching for lion and setting it to lion
-            println("currentAnimal: \(currentAnimal)")
+        case ("Lion", _):
+            let randomIndex = Int(arc4random_uniform(UInt32(lionCubs.count)))
+            currentAnimal = ("LionCub", randomIndex) //searching for lioncub and setting it to lioncub
         default:
             let randomIndex = Int(arc4random_uniform(UInt32(myTigers.count)))
-            println("counttiger: \(myTigers.count)")
-            println("randomIndex: \(randomIndex)")
             currentAnimal = ("Tiger", randomIndex)
-            println("currentAnimal: \(currentAnimal)")
+
         }
     }
     
@@ -162,8 +171,15 @@ class ViewController: UIViewController {
                 self.ageLabel.text = "\(lion.age)"
                 self.nameLabel.text = lion.name
                 self.randomFactLabel.text = lion.randomFact()
-                
-            
+
+            }
+            else if self.currentAnimal.species == "LionCub" {
+                let lionCub = self.lionCubs[self.currentAnimal.index]
+                self.myImageView.image = lionCub.image
+                self.breedLabel.text = lionCub.subspecies
+                self.ageLabel.text = "\(lionCub.age)"
+                self.nameLabel.text = lionCub.name
+                self.randomFactLabel.text = lionCub.randomFact()
             }
             
             self.randomFactLabel.hidden = false
