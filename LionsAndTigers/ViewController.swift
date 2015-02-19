@@ -97,6 +97,12 @@ class ViewController: UIViewController {
         lioness.name = "Sarabi"
         lioness.subspecies = "Barbary"
         
+        lion.roar()
+        lioness.roar()
+        
+        lion.changeToAlphaMale()
+        println(lion.isAlphaMale)//class can access properties while classes cannot
+        
         self.lions += [lion, lioness]
     }
 
