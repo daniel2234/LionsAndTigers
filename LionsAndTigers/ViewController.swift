@@ -123,6 +123,8 @@ class ViewController: UIViewController {
         femaleLionCub.image = UIImage (named: "LionCub2.jpeg")
         femaleLionCub.subspecies = "Transvall"
         femaleLionCub.isAlphaMale = false
+        
+        self.lionCubs += [lionCub, femaleLionCub]// adding instances into array
     }
 
     override func didReceiveMemoryWarning() {
@@ -180,6 +182,7 @@ class ViewController: UIViewController {
                 self.ageLabel.text = "\(lionCub.age)"
                 self.nameLabel.text = lionCub.name
                 self.randomFactLabel.text = lionCub.randomFact()
+                
             }
             
             self.randomFactLabel.hidden = false

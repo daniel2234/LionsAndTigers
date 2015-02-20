@@ -14,9 +14,7 @@ class LionCub: Lion {
     }
     
     override func roar () {
-        
         super.roar()// calls roar from superclass
-        
         println("LionCub: Growl Growl")
     }
     
